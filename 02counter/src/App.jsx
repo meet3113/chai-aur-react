@@ -11,29 +11,35 @@ function App() {
 
   const addValue = () => {
     //counter = counter + 1
-    setCounter(prevCounter => prevCounter + 1)
-    setCounter(prevCounter => prevCounter + 1 )
-    setCounter(prevCounter => prevCounter + 1)
-    setCounter(prevCounter => prevCounter + 1)
+    if (counter == 20){
+      return;
+    }else{
+      setCounter(counter+1)
+    }
     
   }
 
   const removeValue = () => {
-    setCounter(counter - 1)
+    if (counter <= 0){
+      return;
+    }else{
+      setCounter(counter-1)
+    }
   }
   
+  const resetValue = ()=>{
+    setCounter(15)
+  }
   return (
     <>
       <h1>Chai aur react</h1>
       <h2>Counter value: {counter}</h2>
 
-      <button
-      onClick={addValue}
-      >Add value {counter}</button> 
+      <button onClick={addValue}>Add value {counter}</button> 
       <br />
-      <button
-      onClick={removeValue}
-      >remove value {counter}</button>
+      <button onClick={removeValue}>remove value {counter}</button>
+      <br />
+      <button onClick={resetValue}>reset to 15</button>
       <p>footer: {counter}</p>
     </>
   )
